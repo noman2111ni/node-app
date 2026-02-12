@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+        button {
+            padding: 10px;
+            margin-left: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📝 Todo App (EJS)</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter task" required />
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        <% todos.forEach(function(todo){ %>
+            <li>
+                <%= todo.task %>
+                <form action="/delete/<%= todo.id %>" method="POST" style="display:inline;">
+                    <button type="submit">❌</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>
