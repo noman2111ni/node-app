@@ -31,7 +31,6 @@ app.post("/delete/:id", (req, res) => {
 
 app.listen(3000, () => {
   console.log("Server running on port 3000");
-
   setTimeout(() => {
     console.error("ERROR: Intentional crash for testing ECS alert");
     process.exit(1);
